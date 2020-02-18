@@ -38,6 +38,8 @@ public class Main extends Application {
 
         //añadir elementos a la escena
         Text texto=new Text("Bienvenido");
+        //añadi el id al texto para afectarlo
+        texto.setId("texto_bienvenida");
         texto.setFont(Font.font("Tahoma", FontWeight.BOLD,20));
         gridPane.add(texto,0,0,2,1);
 
@@ -47,7 +49,7 @@ public class Main extends Application {
         TextField tfUser=new TextField();
         gridPane.add(tfUser,1,1);
 
-        Label lb2=new Label("Usuario");
+        Label lb2=new Label("Password");
         gridPane.add(lb2,0,2);
 
         PasswordField tfPass=new PasswordField();
@@ -70,11 +72,17 @@ public class Main extends Application {
             }
         });
         //se asigna la escena al escenario
-        Scene scene= new Scene(gridPane,300,275);
+        Scene scene= new Scene(gridPane,400,275);
+
         primaryStage.setScene(scene);
         //se muestra el escenario principal
 
         primaryStage.setTitle("hola mundo de FX");
+
+        //añadir los estilos al primarystage
+        scene.getStylesheets().add(Main.class
+                .getResource("styles.css").toExternalForm());
+
         primaryStage.show();
     }
 
